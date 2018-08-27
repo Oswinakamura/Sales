@@ -1,10 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Infra="clr-namespace:Sales.Infrastructure"
              x:Class="Sales.App">
 	<Application.Resources>
+        <ResourceDictionary>
+            
+            <!--Locator-->
+            <Infra:InstanceLocator x:Key="Locator"/>
+             
+           <!--Parameters-->
+            <x:String x:Key="UrlAPI">http://</x:String>
 
-		<!-- Application resource dictionary -->
+            <x:String x:Key="UrlPrefix">/api</x:String>
 
-	</Application.Resources>
+            <x:String x:Key="UrlProductsController">/Products</x:String>
+
+        </ResourceDictionary>
+        
+    </Application.Resources>
 </Application>
