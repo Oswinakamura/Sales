@@ -20,12 +20,19 @@
                         <ViewCell>
                             <Grid>
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="2*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+                                <Image
+                                     Grid.Column="0"
+                                     Source="{Binding ImageFullPath}"
+                                     WidthRequest="100">
+                                    
+                                </Image>
                                 <Label
                                     FontAttributes="Bold"
-                                    Grid.Column="0"
+                                    Grid.Column="1"
                                     Text="{Binding Description}"
                                     VerticalOptions="Center">
                                 </Label>
