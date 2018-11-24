@@ -35,7 +35,7 @@
             {
              if(string.IsNullOrEmpty(this.ImagePath))
               {
-                    return null;
+                    return "Noproduct";
               }
 
                 return $"La Url del Api{ this.ImagePath.Substring(1)}";
