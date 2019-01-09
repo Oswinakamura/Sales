@@ -1,13 +1,15 @@
 ﻿namespace Sales.ViewModels
 {
+    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Windows.Input;
     using Common.Models;
     using GalaSoft.MvvmLight.Command;
     using Helpers;
     using Services;
-   
+
     using Xamarin.Forms;
 
     public class ProductsViewModel : BaseViewModel
@@ -15,13 +17,15 @@
         #region Atrributes
         private Apiservice apiService;
         private bool isRefreshing;
+        private ObservableCollection<ProducItemViewModel> products;
         #endregion
 
 
         #region Properties
-        private ObservableCollection<Product> products;
 
-        public ObservableCollection<Product> Products
+        public List<Product> MyProducts { get; set; }
+
+        public ObservableCollection<ProducItemViewModel> Products
         {
 
             get { return this.products; }
@@ -82,9 +86,27 @@
                 return;
             }
 
-            var list = (List<Product>)response.Result;
-            this.Products = new ObservableCollection<Product>(list);
+            this.MyProducts = (List<Product>)response.Result;
+            this.RefreshList();
             this.IsRefreshing = false;
+        }
+
+        public void RefreshList()
+        {
+            var myListProducItemViewModel = MyProducts.Select(p => new ProducItemViewModel
+            {
+                Description = p.Description,
+                ImageArray = p.ImageArray,
+                ImagePath = p.ImagePath,
+                IsAviable = p.IsAviable,
+                Price = p.Price,
+                ProductId = p.ProductId,
+                PublishOn = p.PublishOn,
+                Remarks = p.Remarks,
+            });
+            this.Products = new ObservableCollection<ProducItemViewModel>(
+                myListProducItemViewModel.OrderBy(p => p.Description));
+
         }
 
         #endregion

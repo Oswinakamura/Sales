@@ -22,7 +22,7 @@
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public Decimal Price { get; set; }
 
-        [Display(Name = "Is Aviable")]
+        [Display(Name = "Is Avialable")]
         public bool IsAviable { get; set; }
 
         [Display(Name = "Publish On")]

@@ -108,6 +108,47 @@
             get { return Resource.Cancel; }
         }
 
+        public static string Edit
+        {
+            get { return Resource.Edit; }
+        }
+
+        public static string Delete
+        {
+            get { return Resource.Delete; }
+        }
+
+        public static string DeleteConfirmation
+        {
+            get { return Resource.DeleteConfirmation; }
+        }
+
+        public static string Yes
+        {
+            get { return Resource.Yes; }
+        }
+
+        public static string No
+        {
+            get { return Resource.No; }
+        }
+
+        public static string Confirm
+        {
+            get { return Resource.Confirm; }
+        }
+
+        public static string EditProduct
+        {
+            get { return Resource.EditProduct; }
+        }
+
+        public static string IsAviable
+        {
+            get { return Resource.IsAviable; }
+        }
+
+
     }
 
 }
