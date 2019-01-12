@@ -5,6 +5,8 @@ namespace Sales
 {
 
     using Views;
+    using ViewModels;
+    using Sales.Helpers;
 
     public partial class App : Application
 	{
@@ -12,7 +14,16 @@ namespace Sales
 		{
 			InitializeComponent();
 
-			MainPage = new  NavigationPage (new ProductsPage());
+            if (Settings.IsRemembered && string.IsNullOrEmpty(Settings.AccessToken))
+            {
+                MainViewModels.GetInstance().Products = new ProductsViewModel();
+                MainPage = new NavigationPage(new ProductsPage());
+            }
+            else
+            {
+                MainViewModels.GetInstance().Login = new LoginViewModel();
+                MainPage = new NavigationPage(new LoginPage());
+            }  
 		}
 
 		protected override void OnStart ()

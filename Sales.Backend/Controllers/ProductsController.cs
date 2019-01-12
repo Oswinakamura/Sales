@@ -10,6 +10,7 @@
     using System.Threading.Tasks;
     using System.Web.Mvc;
 
+    [Authorize]
     public class ProductsController : Controller
     {
         private LocalDataContext db = new LocalDataContext();
@@ -35,7 +36,8 @@
             return View(product);
         }
 
-        // GET: Products/Create
+      
+       
         public ActionResult Create()
         {
             return View();
